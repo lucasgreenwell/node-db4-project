@@ -5,9 +5,9 @@ function getRecipes () {
 }
 
 function getShoppingList (recipeId) {
-    knex('recipesIngredients')
+   return db('recipesIngredients')
         .join('ingredients', 'recipesIngredients.ingredientId', '=', 'ingredients.Id')
-        .select('ingredientsName').where({recipeId: recipeId})
+        .select('ingredientName').where({recipeId: recipeId})
  }
 
  function getInstructions(id){
